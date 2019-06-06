@@ -3,7 +3,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.08677667595802208 0.9912503671696553 0.09946113862056749 1.6525190493938196
-  position 1.64512430106027 0.5607611227973379 -0.21962229965827762
+  position 0.9371140660187783 0.4210366921622963 -0.16830404330954146
 }
 TexturedBackground {
 }
@@ -24,19 +24,20 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        position 0.7853974999999995
         axis 0 1 0
         anchor 0 0.15 0
       }
       device [
         RotationalMotor {
           name "servo_motor"
-          maxVelocity 0.026
+          maxVelocity 13.1
           maxTorque 0.2157
         }
       ]
       endPoint Solid {
         translation 0 0.2 0
-        rotation 0 -1 0 2.5534737758149535
+        rotation 0 -1 0 1.7680762758149537
         children [
           Shape {
             appearance PBRAppearance {
@@ -50,7 +51,10 @@ Robot {
         boundingObject USE G_RED_BOX
         physics Physics {
         }
+        linearVelocity 0 -6.252799416968585e-16 0
+        angularVelocity 0 4.440892098500626e-15 0
       }
     }
   ]
+  controller "robot2"
 }
