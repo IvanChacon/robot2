@@ -1,0 +1,54 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.08677667595802208 0.9912503671696553 0.09946113862056749 1.6525190493938196
+  position 1.64512430106027 0.5607611227973379 -0.21962229965827762
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Robot {
+  translation 0 0.15 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5411764705882353 0.8862745098039215 0.20392156862745098
+      }
+      geometry Box {
+        size 0.1 0.3 0.1
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.15 0
+      }
+      device [
+        RotationalMotor {
+          name "servo_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.2 0
+        rotation 0 -1 0 2.5534737758149535
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0 0
+            }
+            geometry DEF G_RED_BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        boundingObject USE G_RED_BOX
+        physics Physics {
+        }
+      }
+    }
+  ]
+}
