@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.08677667595802208 0.9912503671696553 0.09946113862056749 1.6525190493938196
-  position 0.9371140660187783 0.4210366921622963 -0.16830404330954146
+  orientation 0.020370034770937986 0.9997219461373728 -0.011878219341914333 1.4484702344803784
+  position 1.7789675605263182 0.32641376927841137 0.2446348970593658
 }
 TexturedBackground {
 }
@@ -22,11 +22,10 @@ Robot {
         size 0.1 0.3 0.1
       }
     }
-    HingeJoint {
+    DEF RED_BOX HingeJoint {
       jointParameters HingeJointParameters {
-        position 0.7853974999999995
         axis 0 1 0
-        anchor 0 0.15 0
+        anchor 0 0.2 0
       }
       device [
         RotationalMotor {
@@ -37,7 +36,6 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.2 0
-        rotation 0 -1 0 1.7680762758149537
         children [
           Shape {
             appearance PBRAppearance {
@@ -47,12 +45,38 @@ Robot {
               size 0.1 0.1 0.1
             }
           }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 0.05 0
+            }
+            device [
+              RotationalMotor {
+                name "servo_motor_2"
+                maxVelocity 13.1
+                maxTorque 0.216
+              }
+            ]
+            endPoint Solid {
+              translation 0 0.2 0
+              rotation 1 0 0 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.9294117647058824 0.8313725490196079 0
+                  }
+                  geometry DEF G_YELLOW_BOX Box {
+                    size 0.1 0.3 0.1
+                  }
+                }
+              ]
+              name "solid(1)"
+              boundingObject USE G_YELLOW_BOX
+            }
+          }
         ]
         boundingObject USE G_RED_BOX
         physics Physics {
         }
-        linearVelocity 0 -6.252799416968585e-16 0
-        angularVelocity 0 4.440892098500626e-15 0
       }
     }
   ]

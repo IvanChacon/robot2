@@ -30,6 +30,7 @@ int main(int argc, char **argv)
   wb_robot_init();
 
  WbDeviceTag servo = wb_robot_get_device("servo_motor");
+ WbDeviceTag servo2 = wb_robot_get_device("servo_motor_2");
 
   while (wb_robot_step(TIME_STEP) != -1) {
 
@@ -46,6 +47,7 @@ int main(int argc, char **argv)
      * wb_differential_wheels_set_speed(100.0,100.0);
      */
      wb_motor_set_position(servo,PI/4);
+     wb_motor_set_position(servo2,PI/4);
   };
 
   /* Enter your cleanup code here */
